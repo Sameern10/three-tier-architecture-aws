@@ -190,7 +190,7 @@ Created custom AMIs from both fully-configured, tested EC2 instances — these s
 ![Frontend ALB (internet-facing)](screenshots/17-frontend-alb.png)
 ![Backend ALB (internal)](screenshots/18-backend-alb.png)
 ![Frontend target group — all healthy](screenshots/19-frontend-tg-healthy.png)
-![Backend target group — all healthy](screenshots/20-backend-tg-healthy.png)
+![Backend target group — 2 healthy, 1 draining as the ASG automatically replaces a previously-unhealthy instance](screenshots/20-backend-tg-healthy.png)
 
 ### 11. Launch Templates & Auto Scaling Groups
 - `frontend-lt` / `backend-lt` — define AMI, instance type, key pair, security group (subnet intentionally left blank, so the ASG controls placement)
@@ -253,7 +253,7 @@ Both alarms are linked to Auto Scaling dynamic scaling policies (`server-creatio
 ![Backend-LowCPU-Alarm](screenshots/26-cloudwatch-low-cpu-alarm.png)
 ![SNS topic and confirmed email subscription](screenshots/27-sns-topic-subscription.png)
 ![Email alert received from CloudWatch alarm via SNS](screenshots/28-sns-email-alert.png)
-![Auto Scaling dynamic scaling policies, correctly linked to both alarms](screenshots/29-asg-scaling-policies-fixed.png)
+![Auto Scaling dynamic scaling policies linked to both CloudWatch alarms (the deletion policy's action was corrected from "Add" to "Remove" after this screenshot was taken — see Challenges Faced)](screenshots/29-asg-scaling-policies-fixed.png)
 
 ---
 
